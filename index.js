@@ -1,11 +1,19 @@
 const http = require('http');
 
 const server = http.createServer( (req, res) => {
-  res.end(`<html>
-             <body>
-                <h1>Listando Produtos</h1>
-             </body>
-            </html>`);
+   if(req.url == '/produtos'){
+      res.end(`<html>
+                 <body>
+                     <h1>Listando Produtos</h1>
+                  </body>
+               </html>`);
+   }else{
+      res.end(`<html>
+      <body>
+          <h1>Home</h1>
+       </body>
+    </html>`);   
+   }
 }).listen(3000);
 
 
