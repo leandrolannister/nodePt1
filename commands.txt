@@ -1,0 +1,7 @@
+npm -version -> Versão npm
+
+npm init -> Cria arquivo package.json
+
+npm install express --save -> install express package.
+--save -> Permite instalar as dependencias do projeto via npm install
+
