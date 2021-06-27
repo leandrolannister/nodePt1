@@ -1,18 +1,12 @@
 const http = require('http');
+const htmlProdutos = `<html><body><h1>Lista de Produtos</h1></body></html>`;
+const htmlHome = `<html><body><h1>Home</h1></body></html>`;
 
 const server = http.createServer( (req, res) => {
    if(req.url == '/produtos'){
-      res.end(`<html>
-                 <body>
-                     <h1>Listando Produtos</h1>
-                  </body>
-               </html>`);
+      res.end(htmlProdutos);
    }else{
-      res.end(`<html>
-      <body>
-          <h1>Home</h1>
-       </body>
-    </html>`);   
+      res.end(htmlHome);   
    }
 }).listen(3000);
 
