@@ -7,3 +7,6 @@ npm install express --save -> install express package.
 
 npm install ejs --save -> Template para arquivos html
 
+npm install nodemon;
+
+
