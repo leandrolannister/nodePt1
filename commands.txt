@@ -9,4 +9,6 @@ npm install ejs --save -> Template para arquivos html
 
 npm install nodemon;
 
+npm install mysql --save
+
 

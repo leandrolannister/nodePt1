@@ -15,10 +15,12 @@
            </tr>
        </thead>
        <tbody>
+           <%for(let row in lista){%>
            <tr>
-               <td>1</td>
-               <td>Caneta</td>
+               <td><%=lista[row].id%></td>
+               <td><%=lista[row].nome%></td>
            </tr>
+           <%}%>
        </tbody>
    </table>   
 </body>
