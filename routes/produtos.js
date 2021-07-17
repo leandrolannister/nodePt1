@@ -1,9 +1,8 @@
 module.exports = (app) => {
     app.get('/livros', (req, res) => { 
-        let query = 'SELECT id, nome FROM  livros;';
-        let connection = app.infra.connectionFactory();
+        let livros = app.infra.show;
 
-        connection.query(query, (error, data) => {
+        livros.show(app.infra.connectionFactory(), (error, data) => {
             res.render('produtos/lista', {lista: data});
         }); 
         
