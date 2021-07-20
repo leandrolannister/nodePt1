@@ -1,8 +1,9 @@
 module.exports = (app) => {
-    app.get('/livros', (req, res) => { 
-        let livros = app.infra.show;
+    app.get('/livros', (req, res) => {
+        const connection = app.infra.connectionFactory();
+        let livros = app.infra.show;            
 
-        livros.show(app.infra.connectionFactory(), (error, data) => {
+        livros.show(connection, (error, data) => {
             res.render('produtos/lista', {lista: data});
         }); 
         
