@@ -1,12 +1,11 @@
 module.exports = (app) => {
-    app.get('/livros', (req, res) => {
-        const connection = new app.infra.connectionFactory();
-        let livros = app.infra.show;            
-
-        livros.show(connection, (error, data) => {
-            res.render('produtos/lista', {lista: data});
-        }); 
+    app.get('/produtos', (req, res) => {
+        let connection = app.infra.connectionFactory();
+        
+        connection.query('select * from livros', (error, data) => {
+            res.render('produtos/lista', {produtos:data})
+        });
         
         connection.end();
-     });
+    });
 }
