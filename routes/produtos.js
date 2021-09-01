@@ -1,10 +1,10 @@
 module.exports = (app) => {
     app.get('/produtos', (req, res) => {
         let connection = app.infra.connectionFactory;
-        let produtoBanco = app.infra.produtoBanco;
+        let produtoBanco = app.infra.produtoBanco(connection);
 
-        produtoBanco.lista(connection, (error, data) => {
-            res.render('produtos/lista', {produtos:data})
+        produtoBanco.lista((error, data) => {
+           res.render('produtos/lista', {produtos:data});           
         });
 
         connection.end();
