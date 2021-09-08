@@ -1,12 +1,15 @@
 module.exports = (app) => {
     app.get('/produtos', (req, res) => {
         let connection = app.infra.connectionFactory;
-        let produtoBanco = app.infra.produtoBanco(connection);
+        var produtosBanco = new app.infra.ProdutosDAO(connection);
 
-        produtoBanco.lista((error, data) => {
+        produtosBanco.lista((error, data) => {
            res.render('produtos/lista', {produtos:data});           
-        });
-
-        connection.end();
+        }).end();
     });
+
+    app.get('/produtos/form', (req, res) => {
+        res.render('produtos/form');
+    });
+
 }
