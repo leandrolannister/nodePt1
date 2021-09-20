@@ -1,15 +1,24 @@
 module.exports = (app) => {
     app.get('/produtos', (req, res) => {
-        let connection = app.infra.connectionFactory;
-        var produtosBanco = new app.infra.ProdutosDAO(connection);
+        const connection = app.infra.connectionFactory;
+        const produtosDAO = new app.infra.ProdutosDAO(connection);
 
-        produtosBanco.lista((error, data) => {
+        produtosDAO.lista((error, data) => {            
            res.render('produtos/lista', {produtos:data});           
-        }).end();
+        });        
     });
 
     app.get('/produtos/form', (req, res) => {
         res.render('produtos/form');
     });
 
+    app.post('/produtos/salva', (req, res) => {
+       const produto = req.body;
+       const connection = app.infra.connectionFactory;
+       const produtosDAO = new app.infra.ProdutosDAO(connection);
+
+       produtosDAO.salva(produto, (error, result) => {
+          res.redirect('/produtos');
+       });
+    });
 }

@@ -11,14 +11,18 @@
        <thead>
            <tr>
                <td>Id</td>
-               <td>Nome</td>
+               <td>Titulo</td>
+               <td>Descricao</td>
+               <td>Preço</td>
            </tr>
        </thead>
        <tbody>
            <%for(let row in produtos){%>
            <tr>
                <td><%=produtos[row].id%></td>
-               <td><%=produtos[row].nome%></td>
+               <td><%=produtos[row].titulo%></td>
+               <td><%=produtos[row].descricao%></td>
+               <td><%=produtos[row].preco%></td>
            </tr>
            <%}%>
        </tbody>
