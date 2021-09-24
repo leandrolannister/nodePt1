@@ -12,7 +12,7 @@ module.exports = (app) => {
         res.render('produtos/form');
     });
 
-    app.post('/produtos/salva', (req, res) => {
+    app.post('/produtos', (req, res) => {
        const produto = req.body;
        const connection = app.infra.connectionFactory;
        const produtosDAO = new app.infra.ProdutosDAO(connection);
